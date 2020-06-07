@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let TmdbData = await TmdbResponse.json();
 
     let imdbId = TmdbData.imdb_id;
-    let OmdbResponse = await fetch(`http://www.omdbapi.com/?apikey=380457ba&i=${imdbId}`);
+    let OmdbResponse = await fetch(`https://www.omdbapi.com/?apikey=380457ba&i=${imdbId}`);
     let OmdbData = await OmdbResponse.json();
 
     let trailer = (TmdbData.videos.results[0]) ? TmdbData.videos.results[0].key : '';
