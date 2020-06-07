@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Movie</title>
+  <link href="dist/normalize.css" rel="stylesheet">
+  <link href="dist/nouislider.min.css" rel="stylesheet">
+  <link href="dist/slimselect.min.css" rel="stylesheet">
+  <link href="dist/styles.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;1,400&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+<div class="site-background">
+</div>
+<div class="loading-screen active">
+  <div class="sk-chase">
+    <div class="sk-chase-dot"></div>
+    <div class="sk-chase-dot"></div>
+    <div class="sk-chase-dot"></div>
+    <div class="sk-chase-dot"></div>
+    <div class="sk-chase-dot"></div>
+    <div class="sk-chase-dot"></div>
+  </div>
+</div>
+<div class="container hidden">
+  <div class="main-info">
+    <div class="poster">
+      <img src="images/bptfVGEQuv6vDTIMVCHjJ9Dz8PX.jpg">
+    </div>
+    <div class="main-info-right">
+      <div class="movie-title">
+        <span class="title">Fight Club</span><span class="year">(1999)</span>
+      </div>
+      <div class="genres">
+        <span>Crime, Thriller, Action</span>
+      </div>
+      <div class="info">
+        <span class="certification">R</span>
+        <span class="release">15 Oct 1999</span>
+        <span class="runtime"><span class="runtime-hours-value">2</span><span class="runtime-hours">h</span> <span class="runtime-minutes-value">19</span></span><span class="runtime-minutes">min</span></span>
+      </div>
+      <div class="ratings">
+        <a href="https://www.imdb.com/title/tt0137523/" class="imdb-link" target="_blank">
+          <div class="rating rating-imdb">
+            <div class="rating-bar imdb-bar"></div>
+            <div class="rating-info imdb-info">785,867</div>
+          </div>
+        </a>
+        <a href="https://www.metacritic.com/movie/fight-club" class="metacritic-link" target="_blank">
+          <div class="rating rating-metacritic">
+            <div class="rating-bar metacritic-bar"></div>
+            <div class="rating-info metacritic-info">Metacritic</div>
+          </div>
+        </a>
+      </div>
+      <div class="directors-writers">
+        <div class="directors"><span class="director">Director:</span><span class="directors-name">David Fincher</span></div>
+        <div class="writers"><span class="writer">Writer:</span><span class="writers-name">Chuck Palahniuk (novel), Jim Uhls (screenplay)</span></div>
+      </div>
+      <div class="overview">
+        <div class="tagline">Mischief. Mayhem. Soap.</div>
+        A ticking-time-bomb insomniac and a slippery soap salesman channel primal male aggression into a shocking new form of
+        therapy. Their concept catches on, with underground "fight clubs" forming in every town, until an eccentric gets in the
+        way and ignites an out-of-control spiral toward oblivion.
+      </div>
+      <div class="controls">
+        <div class="settings">
+          <select class="genres-select" multiple>
+            <option value="28">Action</option>
+            <option value="12">Adventure</option>
+            <option value="16">Animation</option>
+            <option value="35">Comedy</option>
+            <option value="80">Crime</option>
+            <option value="99">Documentary</option>
+            <option value="18">Drama</option>
+            <option value="10751">Family</option>
+            <option value="14">Fantasy</option>
+            <option value="36">History</option>
+            <option value="27">Horror</option>
+            <option value="10402">Music</option>
+            <option value="9648">Mystery</option>
+            <option value="10749">Romance</option>
+            <option value="878">Science Fiction</option>
+            <option value="10770">TV Movie</option>
+            <option value="53">Thriller</option>
+            <option value="10752">War</option>
+            <option value="37">Western</option>
+          </select>
+          <div class="setting-years">
+            <div class="years-tooltip years-left-tooltip">1900</div>
+            <div class="years-tooltip years-right-tooltip">2020</div>
+          </div>
+        </div>
+        <div class="roll-button">Roll a movie</div>
+      </div>
+    </div>
+  </div>
+  <div class="cast"></div>
+  <iframe class="trailer" src="" allowfullscreen="allowfullscreen"></iframe>
+</div>
+<script src="dist/progressbar.min.js"></script>
+<script src="dist/nouislider.min.js"></script>
+<script src="dist/slimselect.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+
+</html>

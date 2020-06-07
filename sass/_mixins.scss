@@ -1,0 +1,5 @@
+@import 'variables';
+
+@mixin break-md {
+  @media (max-width: $width-medium) { @content; }
+}

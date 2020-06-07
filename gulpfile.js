@@ -25,6 +25,8 @@ function watch() {
     server: {
       baseDir: './'
     },
+    notify: false,
+    open: false,
   });
   gulp.watch('./sass/styles.scss', style);
   gulp.watch('./index.html').on('change', browserSync.reload);
