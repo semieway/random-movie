@@ -140,6 +140,7 @@ document.addEventListener('DOMContentLoaded', function() {
         $lastRolledList.append($lastRolledItem);
       }
 
+      scrollToTop();
       hideLoadingScreen();
     })
     .catch((e) => {
@@ -342,6 +343,10 @@ document.addEventListener('DOMContentLoaded', function() {
     $error.innerHTML = message;
     document.querySelector('.loading-screen').append($error);
     return $error;
+  }
+
+  function scrollToTop() {
+    window.scrollTo(0, 0);
   }
 
   function randomInteger(min, max) {

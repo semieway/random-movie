@@ -521,6 +521,7 @@ img {
   transform: translate(-50%, -50%);
   opacity: 0;
   transition: opacity 0.5s;
+  text-align: center;
 
   &.active {
     display: block;
