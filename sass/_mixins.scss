@@ -1,5 +1,9 @@
 @import 'variables';
 
 @mixin break-md {
-  @media (max-width: $width-medium) { @content; }
+  @media (max-width: $width-medium - 1) { @content; }
+}
+
+@mixin break-sd {
+  @media (max-width: $width-mobile - 1) { @content; }
 }

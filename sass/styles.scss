@@ -44,6 +44,10 @@ img {
   margin: 0 auto;
   padding-top: 15px;
   transition: transform 0.8s, opacity 0.5s;
+  @include break-md {
+    width: 100%;
+    padding: 15px 10px 10px 10px;
+  }
 
   &.hidden {
     opacity: 0;
@@ -54,10 +58,18 @@ img {
 
 .main-info {
   display: flex;
+  @include break-md {
+    flex-direction: column;
+  }
 
   .poster {
     width: 320px;
     height: 480px;
+    @include break-md {
+      width: 225px;
+      height: 337px;
+      align-self: center;
+    }
 
     img {
       border-radius: 20px;
@@ -68,11 +80,19 @@ img {
   .main-info-right {
     width: 433px;
     margin: 15px 0 0 15px;
+    @include break-md {
+      width: auto;
+      margin: 15px 0 0 0;
+    }
 
     .movie-title {
       font-size: 44px;
       font-weight: 600;
       line-height: 44px;
+      @include break-md {
+        font-size: 36px;
+        line-height: 38px;
+      }
 
       .year {
         font-size: 25px;
@@ -100,46 +120,54 @@ img {
 
       .runtime {
         position: relative;
-        margin-left: 15px;
+        margin: 0 15px;
 
         .runtime-hours,
         .runtime-minutes {
-          font-size: 14px;
+          font-size: 15px;
+        }
+
+        &::before,
+        &::after {
+          font-size: 1.1em;
+          content: '\2022';
+          position: absolute;
+          top: 0;
         }
 
         &::before {
-          font-size: 1.1em;
-          line-height: 1;
-          content: '\2022';
-          width: 100%;
-          height: 100%;
-          position: absolute;
-          top: 0;
           left: -12px;
-          display: inline-flex;
-          align-content: center;
-          align-items: center;
-          z-index: -1;
+        }
+
+        &::after {
+          right: -12px;
+        }
+      }
+
+      .countries {
+        .country-flag {
+          width: 20px;
+          margin-right: 5px;
         }
       }
     }
 
     .ratings {
       display: flex;
-      margin-top: 20px;
+      margin-top: 17px;
 
       .rating {
         display: flex;
 
         &.rating-imdb {
-          margin-right: 35px;
+          margin-right: 25px;
         }
       }
 
       .rating-bar {
         position: relative;
-        width: 60px;
-        height: 60px;
+        width: 55px;
+        height: 55px;
         margin-right: 10px;
         background-color: $color-dark-cyan;
         border-radius: 50%;
@@ -172,12 +200,12 @@ img {
     }
 
     .directors-writers {
-      margin-top: 15px;
+      margin-top: 12px;
 
       .director,
       .writer {
           font-weight: 600;
-          margin-right: 8px;
+          margin-right: 5px;
           color: $color-font-secondary;
       }
 
@@ -213,6 +241,9 @@ img {
           border: none;
           border-radius: 5px;
           box-shadow: none;
+          @include break-sd {
+            width: 190px;
+          }
 
           .noUi-handle {
             position: absolute;
@@ -264,6 +295,9 @@ img {
         .genres-select {
           width: 275px;
           height: 72px;
+          @include break-sd {
+            width: 220px;
+          }
 
           .ss-multi-selected {
             border: 1px solid rgba(189, 189, 189, 0.25);
@@ -319,6 +353,10 @@ img {
         cursor: pointer;
         user-select: none;
         transition: font-size 0.2s, box-shadow 0.2s;
+        @include break-md {
+          font-size: 15px;
+          text-align: center;
+        }
 
         &:active,
         &:focus {
@@ -335,16 +373,56 @@ img {
 
 .cast {
   display: flex;
-  margin-top: 45px;
+  margin-top: 40px;
   position: relative;
+  overflow-x: scroll;
+
+  &::-webkit-scrollbar {
+    height: 24px;
+  }
+  &::-webkit-scrollbar-thumb {
+    border: 8px solid transparent;
+    border-radius: 20px;
+    background-clip: padding-box;
+    background-color: rgba(189, 189, 189, 0.1);
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 35px;
+    background: linear-gradient(90deg, transparent,rgba(0, 0, 0, 0.6));
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 110px;
+    right: 5px;
+    border: solid #fff;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 6px;
+    transform: rotate(-45deg);
+    transition: transform 0.5s;
+  }
+
+  &.scrolled::before,
+  &.scrolled::after {
+    display: none;
+  }
 
   .actor {
     display: flex;
     flex-direction: column;
+    flex-shrink: 0;
     width: 130px;
 
     &:not(:last-child) {
-      margin-right: 18px;
+      margin-right: 15px;
     }
 
     .actor-image {
@@ -374,22 +452,84 @@ img {
 }
 
 .trailer {
-  width: 722px;
-  height: 361px;
-  margin: 30px 0;
+  width: 768px;
+  height: 432px;
+  margin-top: 20px;
   border: none;
+  border-radius: 10px;
+  @include break-md {
+    width: 100%;
+    height: 221px;
+  }
+}
+
+.last-rolled {
+  margin: 25px 0 60px 0;
+  overflow-x: scroll;
+
+  &::-webkit-scrollbar {
+    height: 24px;
+  }
+  &::-webkit-scrollbar-thumb {
+    border: 8px solid transparent;
+    border-radius: 20px;
+    background-clip: padding-box;
+    background-color: rgba(189, 189, 189, 0.1);
+  }
+
+  .last-rolled-header {
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 15px;
+  }
+
+  .last-rolled-list {
+    display: flex;
+
+    .last-rolled-item {
+      width: 101px;
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+      font-size: 14px;
+      background-color: rgba(189, 189, 189, 0.05);
+      border-radius: 10px;
+
+      &:not(:last-child) {
+        margin-right: 10px;
+      }
+
+      img {
+        width: 101px;
+        height: 151px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+      }
+
+      div {
+        padding: 8px 5px;
+        text-align: center;
+      }
+    }
+  }
 }
 
 .loading-screen {
   position: fixed;
-  left: calc(50% - 40px);
+  left: 50%;
   top: 45%;
+  transform: translate(-50%, -50%);
   opacity: 0;
   transition: opacity 0.5s;
 
   &.active {
     display: block;
     opacity: 1;
+  }
+
+  a {
+    font-weight: 600;
+    text-decoration: underline;
   }
 }
 

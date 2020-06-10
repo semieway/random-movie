@@ -15,7 +15,7 @@ function style() {
 }
 
 function minify() {
-  return gulp.src('./js/main.js')
+  return gulp.src('./js/*.js')
     .pipe(uglify())
     .pipe(gulp.dest('./dist'));
 }
@@ -29,6 +29,7 @@ function watch() {
     open: false,
   });
   gulp.watch('./sass/styles.scss', style);
+  gulp.watch('./js/*.js', minify);
   gulp.watch('./index.html').on('change', browserSync.reload);
 }
 
